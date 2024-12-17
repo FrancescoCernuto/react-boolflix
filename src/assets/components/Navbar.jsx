@@ -4,6 +4,9 @@ import { UseMovieTvContext } from "../contexts/MovieTvContext";
 export default function Navbar() {
     const { getMovies, getSeries, genres } = UseMovieTvContext();
 
+    const initialData = { term: "", category: "" };
+    const [inputData, setInputData] = useState(initialData);
+
     return (
         <nav className="navbar navbar-expand-lg bg-body-tertiary py-3">
             <div className="container-fluid">
