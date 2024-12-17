@@ -47,3 +47,23 @@ export function MovieTvContextProvider({ children }) {
                 })
                 .catch((err) => console.error(err));
         },
+
+        series: [],
+        getSeries: function (term, category) {
+            fetch(`${serieUrl}?query=${term}`, options)
+                .then((res) => res.json())
+                .then((data) => {
+                    let filteredSeries;
+                    category === ""
+                        ? (filteredSeries = data.results)
+                        : (filteredSeries = data.results.filter((dato) =>
+                            dato.genre_ids.includes(category)
+                        ));
+
+                    setMovieTvData((movieTvData) => ({
+                        ...movieTvData,
+                        series: filteredSeries,
+                    }));
+                })
+                .catch((err) => console.error(err));
+        },
