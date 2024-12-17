@@ -67,3 +67,19 @@ export function MovieTvContextProvider({ children }) {
                 })
                 .catch((err) => console.error(err));
         },
+
+        genres: [],
+        getGenres: function () {
+            fetch(movieGenreUrl, options)
+                .then((res) => res.json())
+                .then((data) =>
+                    setMovieTvData((movieTvData) => ({
+                        ...movieTvData,
+                        genres: data,
+                    }))
+                )
+                .catch((err) => console.error(err));
+        },
+    });
+
+    useEffect(() => movieTvData.getGenres(), []);
