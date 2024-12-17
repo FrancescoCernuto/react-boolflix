@@ -1,9 +1,11 @@
 import { UseMovieTvContext } from "../contexts/MovieTvContext";
+import Card from "../components/Card";
 
 export default function Main() {
     const { movies, series, getMovieOriginCountry, movieOriginCountry } =
         UseMovieTvContext(); ù
 
+    // Movie or TV Series
     return (
         <main>
             <div className="container">
@@ -16,33 +18,35 @@ export default function Main() {
                     )}
                 </div>
 
+                {// Movie Output}
 
-                {movies && movies.length > 0 && (
-                    <section className="my-5">
-                        <h2 className="fs-1 text-center fw-semibold">Movies</h2>
-                        <div className="row row-cols-auto gap-1 justify-content-center">
-                            {movies.map((movie) => (
-                                <div key={movie.id} className="col">
-                                    <Card item={movie} />
-                                </div>
-                            ))}
-                        </div>
-                    </section>
-                )}
+                    { movies && movies.length > 0 && (
+                        <section className="my-5">
+                            <h2 className="fs-1 text-center fw-semibold">Movies</h2>
+                            <div className="row row-cols-auto gap-1 justify-content-center">
+                                {movies.map((movie) => (
+                                    <div key={movie.id} className="col">
+                                        <Card item={movie} />
+                                    </div>
+                                ))}
+                            </div>
+                        </section>
+                    )}
 
+                {//Series Output}
 
-                {series && series.length > 0 && (
-                    <section className="my-5">
-                        <h2 className="fs-1 text-center fw-semibold">TV Series</h2>
-                        <div className="row row-cols-auto gap-1 justify-content-center">
-                            {series.map((serie) => (
-                                <div key={serie.id} className="col">
-                                    <Card item={serie} />
-                                </div>
-                            ))}
-                        </div>
-                    </section>
-                )}
+                    { series && series.length > 0 && (
+                        <section className="my-5">
+                            <h2 className="fs-1 text-center fw-semibold">TV Series</h2>
+                            <div className="row row-cols-auto gap-1 justify-content-center">
+                                {series.map((serie) => (
+                                    <div key={serie.id} className="col">
+                                        <Card item={serie} />
+                                    </div>
+                                ))}
+                            </div>
+                        </section>
+                    )}
             </div>
         </main>
     );
