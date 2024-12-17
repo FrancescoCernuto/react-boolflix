@@ -29,4 +29,8 @@ export function MovieTvContextProvider({ children }) {
     const [movieTvData, setMovieTvData] = useState({
         movies: [],
 
-        getMovies: function (term, category)
+        getMovies: function (term, category) {
+            fetch(`${movieUrl}?query=${term}`, options)
+                .then((res) => res.json())
+                .then((data) => {
+                },
