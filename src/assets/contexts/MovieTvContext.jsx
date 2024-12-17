@@ -45,4 +45,5 @@ export function MovieTvContextProvider({ children }) {
                         movies: filteredMovies,
                     }));
                 })
+                .catch((err) => console.error(err));
         },
