@@ -27,3 +27,8 @@ export default function Card() {
                 language = "US";
                 break;
         }
+
+        return (
+            <img src={`https://flagsapi.com/${language.toUpperCase()}/flat/32.png`} />
+        );
+    }
