@@ -21,4 +21,9 @@ export default function Card() {
         }
     }
 
-    function languageToFlag(language) { }
+    function languageToFlag(language) {
+        switch (language) {
+            case "en":
+                language = "US";
+                break;
+        }
