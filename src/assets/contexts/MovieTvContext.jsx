@@ -39,4 +39,10 @@ export function MovieTvContextProvider({ children }) {
                         : (filteredMovies = data.results.filter((dato) =>
                             dato.genre_ids.includes(category)
                         ));
-                },
+
+                    setMovieTvData((movieTvData) => ({
+                        ...movieTvData,
+                        movies: filteredMovies,
+                    }));
+                })
+        },
