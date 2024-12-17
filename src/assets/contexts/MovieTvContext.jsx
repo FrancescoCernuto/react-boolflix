@@ -83,3 +83,9 @@ export function MovieTvContextProvider({ children }) {
     });
 
     useEffect(() => movieTvData.getGenres(), []);
+    return (
+        <MovieTvContext.Provider value={movieTvData}>
+            {children}
+        </MovieTvContext.Provider>
+    );
+}
