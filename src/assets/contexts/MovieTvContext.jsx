@@ -33,4 +33,10 @@ export function MovieTvContextProvider({ children }) {
             fetch(`${movieUrl}?query=${term}`, options)
                 .then((res) => res.json())
                 .then((data) => {
+                    let filteredMovies;
+                    category === ""
+                        ? (filteredMovies = data.results)
+                        : (filteredMovies = data.results.filter((dato) =>
+                            dato.genre_ids.includes(category)
+                        ));
                 },
