@@ -32,3 +32,33 @@ export default function Card() {
             <img src={`https://flagsapi.com/${language.toUpperCase()}/flat/32.png`} />
         );
     }
+
+    return (
+        <div className="card p-0 cursor-pointer rounded">
+            <img src={posterUrl} className="card-img img-fluid" alt="No Image 😢" />
+            <div className="overlay">
+                <p>
+                    <strong>Title: </strong> {item.title || item.name}
+                </p>
+                <p>
+                    <strong>Original Title: </strong>
+                    {item.original_title || item.original_name}
+                </p>
+                <p>{raiting(item.vote_average)}</p>
+                <div className="my-1">
+                    {item.origin_country ? (
+                        <img
+                            src={`https://flagsapi.com/${item.origin_country}/flat/32.png`}
+                        />
+                    ) : (
+                        languageToFlag(item.original_language)
+                    )}
+                </div>
+                <p>
+                    <strong>Description: </strong>
+                    {item.overview}
+                </p>
+            </div>
+        </div>
+    );
+}
